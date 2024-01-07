@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="HelloFFmpeg">
+        <State />
+      </entry>
+      <entry key="HelloFlutter">
+        <State />
+      </entry>
+      <entry key="HelloJNI">
+        <State />
+      </entry>
+      <entry key="HelloOpenGLES">
+        <State />
+      </entry>
+      <entry key="myapplication">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>
