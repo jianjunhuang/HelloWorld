@@ -9,4 +9,6 @@ class HelloJNI {
     external fun stringFromJNI(): String
 
     external fun dynamicStringFromJNI(): String
+
+    external fun stringInNative(input: String): String
 }
