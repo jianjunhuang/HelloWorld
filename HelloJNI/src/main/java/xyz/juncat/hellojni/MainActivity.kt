@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         // Example of a call to a native method
         val helloJNI = HelloJNI()
-        binding.sampleText.text = helloJNI.stringFromJNI()
+        binding.sampleText.text = helloJNI.dynamicStringFromJNI()
     }
 
 }

@@ -7,4 +7,6 @@ class HelloJNI {
     }
 
     external fun stringFromJNI(): String
+
+    external fun dynamicStringFromJNI(): String
 }

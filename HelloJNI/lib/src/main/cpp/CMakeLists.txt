@@ -35,7 +35,12 @@ message(${CMAKE_CURRENT_LIST_FILE})
 # used in the AndroidManifest.xml file.
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
-        native-lib.cpp)
+        native-lib.cpp
+        dynamic_load.cpp)
+
+
+#添加 *.h ，引用时就可以直接 <...> 使用
+include_directories(${CMAKE_SOURCE_DIR}/base)
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
