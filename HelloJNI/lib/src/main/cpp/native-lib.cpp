@@ -16,3 +16,15 @@ Java_xyz_juncat_jni_lib_HelloJNI_stringFromJNI(
     std::string hello = "Hello from CPP";
     return env->NewStringUTF(hello.c_str());
 }
+
+void baseType() {
+    /*
+     * jint
+     * jbyte
+     * jchar
+     * jshort
+     * jlong
+     * jfloat
+     * jdouble
+     */
+}
