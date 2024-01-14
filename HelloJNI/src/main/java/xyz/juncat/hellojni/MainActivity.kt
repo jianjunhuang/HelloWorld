@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import xyz.juncat.hellojni.databinding.ActivityMainBinding
+import xyz.juncat.jni.lib.HelloJNI
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,19 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        val helloJNI = HelloJNI()
+        binding.sampleText.text = helloJNI.stringFromJNI()
     }
 
-    /**
-     * A native method that is implemented by the 'hellojni' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): String
-
-    companion object {
-        // Used to load the 'hellojni' library on application startup.
-        init {
-            System.loadLibrary("hellojni")
-        }
-    }
 }

@@ -12,7 +12,13 @@ cmake_minimum_required(VERSION 3.22.1)
 project("hellojni")
 
 # Log in console
-message("hello log")
+message("hello log ${CMAKE_PROJECT_NAME}")
+
+# 常用常量
+message(${CMAKE_CURRENT_LIST_DIR})
+message(${CMAKE_CURRENT_LIST_FILE})
+
+
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
