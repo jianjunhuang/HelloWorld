@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         binding.sampleText.text = helloJNI.dynamicStringFromJNI()
 
         helloJNI.stringInNative("demo for string in native")
+        helloJNI.referenceInJNI(arrayOf<String>(
+            "1", "2", "3", "4", "5"
+        ))
     }
 
 }

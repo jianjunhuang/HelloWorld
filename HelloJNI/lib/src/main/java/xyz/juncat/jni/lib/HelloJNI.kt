@@ -11,4 +11,6 @@ class HelloJNI {
     external fun dynamicStringFromJNI(): String
 
     external fun stringInNative(input: String): String
+
+    external fun referenceInJNI(strArray: Array<String>): Array<String>
 }
