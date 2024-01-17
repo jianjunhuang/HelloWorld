@@ -2,8 +2,10 @@ package xyz.juncat.hellojni
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import xyz.juncat.hellojni.databinding.ActivityMainBinding
+import xyz.juncat.jni.lib.Account
 import xyz.juncat.jni.lib.HelloJNI
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +26,14 @@ class MainActivity : AppCompatActivity() {
         helloJNI.referenceInJNI(arrayOf<String>(
             "1", "2", "3", "4", "5"
         ))
+        val account = Account(1, "1", "2")
+        helloJNI.accessAccount(account)
+        Log.i(TAG, "accessAccount: $account")
+        helloJNI.accessStaticFiled(account)
+        Log.i(TAG, "accessAccount static: ${Account.staticId}")
     }
 
+    companion object {
+        private const val TAG = "MainActivity"
+    }
 }

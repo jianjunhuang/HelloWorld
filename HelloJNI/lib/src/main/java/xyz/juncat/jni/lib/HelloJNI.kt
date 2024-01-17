@@ -13,4 +13,8 @@ class HelloJNI {
     external fun stringInNative(input: String): String
 
     external fun referenceInJNI(strArray: Array<String>): Array<String>
+
+    external fun accessAccount(account: Account)
+
+    external fun accessStaticFiled(account: Account)
 }

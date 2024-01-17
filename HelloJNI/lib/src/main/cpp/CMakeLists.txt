@@ -37,7 +37,9 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
         native-lib.cpp
         dynamic_load.cpp
-        reference_type.cpp)
+        reference_type.cpp
+        access_field.cpp
+)
 
 
 #添加 *.h ，引用时就可以直接 <...> 使用
