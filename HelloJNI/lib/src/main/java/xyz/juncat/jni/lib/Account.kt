@@ -5,6 +5,12 @@ data class Account(
     var nickname: String,
     val password: String
 ) {
+
+    fun changeName(name: String): Boolean {
+        nickname = name
+        return true
+    }
+
     companion object {
         var staticId = 0
     }

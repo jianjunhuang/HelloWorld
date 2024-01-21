@@ -17,4 +17,7 @@ class HelloJNI {
     external fun accessAccount(account: Account)
 
     external fun accessStaticFiled(account: Account)
+
+    external fun accessAccountMethod(account: Account)
+    external fun accessAccountMethodWithArg(account: Account)
 }

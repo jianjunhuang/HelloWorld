@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "accessAccount: $account")
         helloJNI.accessStaticFiled(account)
         Log.i(TAG, "accessAccount static: ${Account.staticId}")
+
+        //JNI access Java method
+        helloJNI.accessAccountMethod(account)
+        helloJNI.accessAccountMethodWithArg(account)
+        Log.i(TAG, "accessAccountMethodWithArg: $account")
     }
 
     companion object {

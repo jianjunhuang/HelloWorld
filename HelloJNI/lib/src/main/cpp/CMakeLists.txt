@@ -38,7 +38,7 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         native-lib.cpp
         dynamic_load.cpp
         reference_type.cpp
-        access_field.cpp
+        access_java.cpp
 )
 
 
