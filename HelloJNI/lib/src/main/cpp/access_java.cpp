@@ -78,3 +78,11 @@ Java_xyz_juncat_jni_lib_HelloJNI_accessAccountMethodWithArg(JNIEnv *env, jobject
     jboolean result = env->CallBooleanMethod(account, mId, name);
     LOGD("accessAccountMethodWithArg -> %d", result);
 }
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_xyz_juncat_jni_lib_HelloJNI_callbackFromJNI(JNIEnv *env, jobject thiz, jobject callback) {
+    jclass cls = env->GetObjectClass(callback);
+    jmethodID mId = env->GetMethodID(cls, "onCall", "()V");
+    env->CallVoidMethod(callback, mId);
+}

@@ -36,6 +36,12 @@ class MainActivity : AppCompatActivity() {
         helloJNI.accessAccountMethod(account)
         helloJNI.accessAccountMethodWithArg(account)
         Log.i(TAG, "accessAccountMethodWithArg: $account")
+        helloJNI.callbackFromJNI(object :HelloJNI.Callback {
+            override fun onCall() {
+                Log.i(TAG, "onCall from JNI")
+            }
+
+        })
     }
 
     companion object {

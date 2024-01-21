@@ -19,5 +19,12 @@ class HelloJNI {
     external fun accessStaticFiled(account: Account)
 
     external fun accessAccountMethod(account: Account)
+
     external fun accessAccountMethodWithArg(account: Account)
+
+    external fun callbackFromJNI(callback: Callback)
+
+    interface Callback {
+        fun onCall()
+    }
 }
