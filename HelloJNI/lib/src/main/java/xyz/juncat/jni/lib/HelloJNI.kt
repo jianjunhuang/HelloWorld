@@ -26,6 +26,8 @@ class HelloJNI {
 
     external fun callbackFromJNIThread(callback: Callback)
 
+    external fun createAccountByJNI(): Account
+
 
     interface Callback {
         fun onCall()

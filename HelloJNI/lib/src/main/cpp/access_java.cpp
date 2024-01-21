@@ -120,3 +120,19 @@ Java_xyz_juncat_jni_lib_HelloJNI_callbackFromJNIThread(JNIEnv *env, jobject thiz
     pthread_create(&handle, nullptr, threadCallback, nullptr);
 
 }
+
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_xyz_juncat_jni_lib_HelloJNI_createAccountByJNI(JNIEnv *env, jobject thiz) {
+    jclass cls = env->FindClass("xyz/juncat/jni/lib/Account");
+    jmethodID mId = env->GetMethodID(cls, "<init>", "(ILjava/lang/String;Ljava/lang/String;)V");
+    jint id = 0;
+    jstring name = env->NewStringUTF("name");
+    jstring pwd = env->NewStringUTF("pwd");
+    //Method 1)
+    //jobject account = env->NewObject(cls, mId, id, name, pwd);
+    //Method 2)
+    jobject account = env->AllocObject(cls);
+    env->CallNonvirtualVoidMethod(account, cls, mId, id, name, pwd);
+    return account;
+}

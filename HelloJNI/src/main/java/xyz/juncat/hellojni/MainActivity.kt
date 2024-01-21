@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "onCall: from JNI -> ${Thread.currentThread().name}")
             }
         })
+
+        //create java instance
+        Log.i(TAG, "create java instance in JNI: ${helloJNI.createAccountByJNI()}");
     }
 
     companion object {
