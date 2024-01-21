@@ -50,6 +50,11 @@ class MainActivity : AppCompatActivity() {
 
         //create java instance
         Log.i(TAG, "create java instance in JNI: ${helloJNI.createAccountByJNI()}");
+
+        //reference test
+        helloJNI.localReferenceInJNI()
+        helloJNI.globalReferenceInJNI()//alloc
+        helloJNI.globalReferenceInJNI()//cache
     }
 
     companion object {

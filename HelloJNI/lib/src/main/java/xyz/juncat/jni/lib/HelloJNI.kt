@@ -28,6 +28,12 @@ class HelloJNI {
 
     external fun createAccountByJNI(): Account
 
+    external fun localReferenceInJNI()
+
+    external fun globalReferenceInJNI()
+
+    external fun weakGlobalReferenceInJNI()
+
 
     interface Callback {
         fun onCall()
