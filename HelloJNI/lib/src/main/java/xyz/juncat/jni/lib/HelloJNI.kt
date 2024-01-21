@@ -1,5 +1,7 @@
 package xyz.juncat.jni.lib
 
+import java.lang.IllegalArgumentException
+
 class HelloJNI {
 
     init {
@@ -33,6 +35,14 @@ class HelloJNI {
     external fun globalReferenceInJNI()
 
     external fun weakGlobalReferenceInJNI()
+
+    external fun handleExceptionFromJava()
+
+    external fun throwExceptionFromJNI(): IllegalArgumentException
+
+    fun createException() {
+        val i = 1 / 0;
+    }
 
 
     interface Callback {

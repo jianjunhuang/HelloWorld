@@ -40,6 +40,7 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         reference_type.cpp
         access_java.cpp
         base/jvm_holder.cpp
+        jni_exception.cpp
 )
 
 

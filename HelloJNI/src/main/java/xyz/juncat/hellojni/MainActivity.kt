@@ -3,7 +3,6 @@ package xyz.juncat.hellojni
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import xyz.juncat.hellojni.databinding.ActivityMainBinding
 import xyz.juncat.jni.lib.Account
 import xyz.juncat.jni.lib.HelloJNI
@@ -23,9 +22,11 @@ class MainActivity : AppCompatActivity() {
         binding.sampleText.text = helloJNI.dynamicStringFromJNI()
 
         helloJNI.stringInNative("demo for string in native")
-        helloJNI.referenceInJNI(arrayOf<String>(
-            "1", "2", "3", "4", "5"
-        ))
+        helloJNI.referenceInJNI(
+            arrayOf<String>(
+                "1", "2", "3", "4", "5"
+            )
+        )
         val account = Account(1, "1", "2")
         helloJNI.accessAccount(account)
         Log.i(TAG, "accessAccount: $account")
@@ -36,13 +37,13 @@ class MainActivity : AppCompatActivity() {
         helloJNI.accessAccountMethod(account)
         helloJNI.accessAccountMethodWithArg(account)
         Log.i(TAG, "accessAccountMethodWithArg: $account")
-        helloJNI.callbackFromJNI(object :HelloJNI.Callback {
+        helloJNI.callbackFromJNI(object : HelloJNI.Callback {
             override fun onCall() {
                 Log.i(TAG, "onCall from JNI")
             }
 
         })
-        helloJNI.callbackFromJNIThread(object :HelloJNI.Callback {
+        helloJNI.callbackFromJNIThread(object : HelloJNI.Callback {
             override fun onCall() {
                 Log.i(TAG, "onCall: from JNI -> ${Thread.currentThread().name}")
             }
@@ -55,6 +56,14 @@ class MainActivity : AppCompatActivity() {
         helloJNI.localReferenceInJNI()
         helloJNI.globalReferenceInJNI()//alloc
         helloJNI.globalReferenceInJNI()//cache
+
+        //exception
+        helloJNI.handleExceptionFromJava()
+        try {
+            helloJNI.throwExceptionFromJNI()
+        } catch (t: Throwable) {
+            Log.e(TAG, "catch exception from jni:", t)
+        }
     }
 
     companion object {
