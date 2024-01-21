@@ -24,6 +24,9 @@ class HelloJNI {
 
     external fun callbackFromJNI(callback: Callback)
 
+    external fun callbackFromJNIThread(callback: Callback)
+
+
     interface Callback {
         fun onCall()
     }

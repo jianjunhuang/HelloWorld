@@ -1,6 +1,7 @@
 #include <jni.h>
 #include <string>
 #include <logutil.h>
+#include <jvm_holder.h>
 
 jstring getString(JNIEnv *env, jobject jobj) {
     return env->NewStringUTF("get string");
@@ -38,5 +39,7 @@ JNIEXPORT int JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     }
     registerNativeMethod(env, "xyz/juncat/jni/lib/HelloJNI", gMethods, /*方法数量*/1);
     LOGD("jni on load!");
+
+    setJVM(vm);
     return JNI_VERSION_1_6;
 }

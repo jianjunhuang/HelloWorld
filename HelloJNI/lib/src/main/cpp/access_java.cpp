@@ -1,5 +1,8 @@
 #include <jni.h>
 #include <logutil.h>
+#include <bits/pthread_types.h>
+#include <pthread.h>
+#include "jvm_holder.h"
 
 //
 // Created by jianjun huang on 2024/1/17.
@@ -60,7 +63,7 @@ Java_xyz_juncat_jni_lib_HelloJNI_accessStaticFiled(JNIEnv *env, jobject thiz, jo
 extern "C"
 JNIEXPORT void JNICALL
 Java_xyz_juncat_jni_lib_HelloJNI_accessAccountMethod(JNIEnv *env, jobject thiz, jobject account) {
-    jclass  cls = env->GetObjectClass(account);
+    jclass cls = env->GetObjectClass(account);
     jmethodID mId = env->GetMethodID(cls, "toString", "()Ljava/lang/String;");
     jstring str = static_cast<jstring>(env->CallObjectMethod(account, mId));
     const char *cStr = env->GetStringUTFChars(str, 0);
@@ -85,4 +88,35 @@ Java_xyz_juncat_jni_lib_HelloJNI_callbackFromJNI(JNIEnv *env, jobject thiz, jobj
     jclass cls = env->GetObjectClass(callback);
     jmethodID mId = env->GetMethodID(cls, "onCall", "()V");
     env->CallVoidMethod(callback, mId);
+}
+
+static jclass threadClazz;
+static jmethodID threadMethod;
+static jobject threadObject;
+
+
+void *threadCallback(void *) {
+
+    JNIEnv *env = nullptr;
+    JavaVM *gVM = getJVM();
+    if (gVM->AttachCurrentThread(&env, nullptr) == 0) {
+
+        env->CallVoidMethod(threadObject, threadMethod);
+
+        gVM->DetachCurrentThread();
+    }
+    return nullptr;
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_xyz_juncat_jni_lib_HelloJNI_callbackFromJNIThread(JNIEnv *env, jobject thiz,
+                                                       jobject callback) {
+    threadObject = env->NewGlobalRef(callback);
+    threadClazz = env->GetObjectClass(callback);
+    threadMethod = env->GetMethodID(threadClazz, "onCall", "()V");
+
+    pthread_t handle;
+    pthread_create(&handle, nullptr, threadCallback, nullptr);
+
 }

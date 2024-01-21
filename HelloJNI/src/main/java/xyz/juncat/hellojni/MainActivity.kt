@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        helloJNI.callbackFromJNIThread(object :HelloJNI.Callback {
+            override fun onCall() {
+                Log.i(TAG, "onCall: from JNI -> ${Thread.currentThread().name}")
+            }
+        })
     }
 
     companion object {
