@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         helloJNI.createJNIThread()
         helloJNI.createJNIThreadWithArgs()
         //helloJNI.joinThreadInJNI()
+        helloJNI.waitNativeThread()
     }
 
     companion object {

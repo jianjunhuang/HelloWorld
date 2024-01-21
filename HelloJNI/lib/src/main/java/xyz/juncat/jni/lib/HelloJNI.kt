@@ -46,6 +46,8 @@ class HelloJNI {
 
     external fun joinThreadInJNI()
 
+    external fun waitNativeThread()
+
     fun createException() {
         val i = 1 / 0;
     }
