@@ -64,6 +64,11 @@ class MainActivity : AppCompatActivity() {
         } catch (t: Throwable) {
             Log.e(TAG, "catch exception from jni:", t)
         }
+
+        //thread
+        helloJNI.createJNIThread()
+        helloJNI.createJNIThreadWithArgs()
+        //helloJNI.joinThreadInJNI()
     }
 
     companion object {

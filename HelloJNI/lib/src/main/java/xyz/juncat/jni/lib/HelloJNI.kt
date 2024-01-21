@@ -40,6 +40,12 @@ class HelloJNI {
 
     external fun throwExceptionFromJNI(): IllegalArgumentException
 
+    external fun createJNIThread()
+
+    external fun createJNIThreadWithArgs()
+
+    external fun joinThreadInJNI()
+
     fun createException() {
         val i = 1 / 0;
     }
