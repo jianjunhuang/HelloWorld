@@ -1,5 +1,6 @@
 package xyz.juncat.hellojni
 
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -70,6 +71,8 @@ class MainActivity : AppCompatActivity() {
         helloJNI.createJNIThreadWithArgs()
         //helloJNI.joinThreadInJNI()
         helloJNI.waitNativeThread()
+        val bmp = BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
+        binding.ivSample.setImageBitmap(helloJNI.bitmapInJNI(bmp))
     }
 
     companion object {

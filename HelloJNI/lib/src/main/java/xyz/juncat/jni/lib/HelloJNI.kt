@@ -1,5 +1,6 @@
 package xyz.juncat.jni.lib
 
+import android.graphics.Bitmap
 import java.lang.IllegalArgumentException
 
 class HelloJNI {
@@ -47,6 +48,8 @@ class HelloJNI {
     external fun joinThreadInJNI()
 
     external fun waitNativeThread()
+
+    external fun bitmapInJNI(bmp: Bitmap): Bitmap
 
     fun createException() {
         val i = 1 / 0;
