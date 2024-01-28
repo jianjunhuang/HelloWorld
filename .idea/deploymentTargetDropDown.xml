@@ -11,13 +11,10 @@
       <entry key="HelloJNI">
         <State />
       </entry>
-      <entry key="HelloJNI.lib">
-        <State />
-      </entry>
       <entry key="HelloOpenGLES">
         <State />
       </entry>
-      <entry key="myapplication">
+      <entry key="app">
         <State />
       </entry>
     </value>

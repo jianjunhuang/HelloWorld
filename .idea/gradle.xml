@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/HelloAIDL" />
+            <option value="$PROJECT_DIR$/HelloAIDL/libaidl" />
             <option value="$PROJECT_DIR$/HelloFFmpeg" />
             <option value="$PROJECT_DIR$/HelloFlutter" />
             <option value="$PROJECT_DIR$/HelloFlutter/hello_flutter" />
