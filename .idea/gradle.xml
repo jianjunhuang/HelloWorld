@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/HelloAIDL" />
             <option value="$PROJECT_DIR$/HelloAIDL/libaidl" />
             <option value="$PROJECT_DIR$/HelloFFmpeg" />
+            <option value="$PROJECT_DIR$/HelloFFmpeg/ffmpeg_lib" />
             <option value="$PROJECT_DIR$/HelloFlutter" />
             <option value="$PROJECT_DIR$/HelloFlutter/hello_flutter" />
             <option value="$PROJECT_DIR$/HelloJNI" />

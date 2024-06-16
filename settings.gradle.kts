@@ -22,6 +22,7 @@ dependencyResolutionManagement {
 rootProject.name = "Hello"
 include(":HelloJNI")
 include(":HelloFFmpeg")
+include(":HelloFFmpeg:ffmpeg_lib")
 include(":HelloOpenGLES")
 include(":HelloFlutter")
 include(":HelloFlutter:hello_flutter")
