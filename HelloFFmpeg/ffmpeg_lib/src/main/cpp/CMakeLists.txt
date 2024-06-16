@@ -39,9 +39,21 @@ add_library(
         retriever/ffmpeg_retriever.cpp
 )
 
+add_library(
+        # Sets the name of the library.
+        native-info
+
+        # Sets the library as a shared library.
+        SHARED
+
+        # Provides a relative path to your source file(s).
+        info/info_jni.cpp
+)
+
 target_include_directories(native-codec PRIVATE ${FFMPEG_INCLUDE_PATH})
 target_include_directories(native-extractor PRIVATE ${FFMPEG_INCLUDE_PATH})
 target_include_directories(native-retriever PRIVATE ${FFMPEG_INCLUDE_PATH})
+target_include_directories(native-info PRIVATE ${FFMPEG_INCLUDE_PATH})
 
 foreach (libname IN ITEMS avcodec avformat avutil swresample swscale yuv)
     find_library(
@@ -149,5 +161,14 @@ target_link_libraries( # Specifies the target library.
         ${swscale}
         ${yuv}
         ${jnigraphics-lib}
+        ${log-lib})
+
+target_link_libraries( # Specifies the target library.
+        native-info
+        ${avcodec}
+        ${avformat}
+        ${avutil}
+        ${swresample}
+        ${swscale}
         ${log-lib})
 
