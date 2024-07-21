@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+project("ffmpeg-lib")
+
 set(FFMPEG_LIBS_PATH ${CMAKE_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
+message("ffmpeg libs path ${FFMPEG_LIBS_PATH}")
 set(FFMPEG_INCLUDE_PATH ${CMAKE_SOURCE_DIR}/include)
+message("ffmpeg include path ${FFMPEG_INCLUDE_PATH}")
 
 
 add_library( # Sets the name of the library.
